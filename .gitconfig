@@ -1,0 +1,18 @@
+[credential]
+	helper = store
+[user]
+	name = long.tt
+	email = long.tt@atomsolution.com.vn
+
+[alias]
+    co = checkout
+    br = branch
+    st = status
+    cm = commit -m
+    lg = log --oneline --graph --all --decorate
+	amend = commit --amend --no-edit
+	a = add .
+	fpull = reset --hard
+	stsh = stash --keep-index # include unstaged only
+	staash = stash --include-untracked # include untracked 
+	staaash = stash --all # include ignored
