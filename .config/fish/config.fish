@@ -9,7 +9,7 @@ set fish_greeting (curl -s -m 0.35 "wttr.in/?format=3")
 # set -U winhost (grep -G '^nameserver' /etc/resolv.conf | awk '{print $2}')
 
 # nvm default version
-set -U nvm_default_version lts/iron
+set -U nvm_default_version 22.6.0
 
 # fzf default options
 set -gx fzf_preview_dir_cmd "eza -l --color=always --group-directories-first --icons"
@@ -20,7 +20,7 @@ set -gx FZF_DEFAULT_OPTS "
     --cycle --layout=reverse --border --height=90% --preview-window=wrap --marker='*'
 "
 
-set -gx MANPAGER "sh -c 'col -bx | batcat -l man -p'"
+set -gx MANPAGER "sh -c 'col -bx | cat -l man -p'"
 
 # bat default options
 set -gx BAT_THEME ansi
@@ -42,8 +42,6 @@ abbr -a la "eza -a --color=always --group-directories-first --icons" # all files
 abbr -a ll 'eza -l --color=always --group-directories-first --icons' # long format
 abbr -a lt 'eza -aT --color=always --group-directories-first --icons' # tree listing
 abbr -a l. "eza -a | grep -E '^\.'" # dotfiles
-abbr -a --position anywhere -- -h '-h 2>&1 | bat --language=help --style=plain' # replace -h with bathelp
-abbr -a --position anywhere -- --help '--help 2>&1 | bat --language=help --style=plain' # replace --help with bathelp
 abbr -a cd z
 abbr -a cdi zi
 abbr -a connect 'openvpn3 session-start --config /home/longtruong/Documents/truong_thanh_long.ovpn'
@@ -78,6 +76,7 @@ set -U fish_pager_color_description yellow
 set -U fish_pager_color_prefix white --bold --underline
 set -U fish_pager_color_progress brwhite '--background=cyan'
 
+set -x GIT_DISCOVERY_ACROSS_FILESYSTEM 1
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true

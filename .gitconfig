@@ -9,10 +9,17 @@
     br = branch
     st = status
     cm = commit -m
-    lg = log --oneline --graph --all --decorate
+    tree = log --oneline --graph --all --decorate
 	amend = commit --amend --no-edit
-	a = add .
-	fpull = reset --hard
-	stsh = stash --keep-index # include unstaged only
-	staash = stash --include-untracked # include untracked 
-	staaash = stash --all # include ignored
+	aa = add .
+	fush = push --force
+	pullf = reset --hard HEAD
+	undo = reset --soft HEAD
+    dev = "!f() { git checkout dev && git pull origin dev; }; f"
+	stsh = stash push --keep-index -m  include unstaged only
+	staash = stash push --include-untracked -m # include untracked 
+	staaash = stash push --all -m # include ignored
+	f = fetch
+	upstream = push --set-upstream origin
+[safe]
+	directory = /run/media/longtruong/Data/web-programing/Course/nextjs-super/frontend
